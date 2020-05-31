@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UsuarioServiceService} from "./usuario-service.service";
 import {Usuario} from "../model/usuario";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-usuario',
@@ -13,8 +14,7 @@ export class UsuarioComponent implements OnInit {
   usuarios: Usuario[] = [];
   isLoadingResults = true;
 
-
-  constructor(private api: UsuarioServiceService) { }
+  constructor(private api: UsuarioServiceService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.api.obtemListaUsuarios()
@@ -27,7 +27,7 @@ export class UsuarioComponent implements OnInit {
         error =>
         {
           console.log(error);
-          alert(error)
+          this.toastr.error("Falha ao carregar lista de usuários","Erro")
           this.isLoadingResults = false;
         }
       )

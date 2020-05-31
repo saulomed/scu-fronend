@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 import {UsuarioServiceService} from "../usuario-service.service";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-formulario',
@@ -13,7 +14,8 @@ export class FormularioComponent implements OnInit {
   formularioUsuario: FormGroup;
   isLoadingResults = false;
 
-  constructor(private fb: FormBuilder, private api: UsuarioServiceService, private router:Router) {
+  constructor(private fb: FormBuilder, private api: UsuarioServiceService, private router: Router,
+              private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -58,11 +60,11 @@ export class FormularioComponent implements OnInit {
     this.api.adicionarUsuario(usuario)
       .subscribe(resultado => {
           this.router.navigate(['/usuarios/listar'])
-        alert("Usuário Cadastrado com sucesso.")
+          this.toastr.success("Usuário Cadastrado com sucesso.", "Sucesso")
 
         }, (error) => {
-          console.log("Caiu no erro");
-          alert(error)
+
+          this.toastr.error(error, "Erro")
           this.isLoadingResults = false;
         }
       )

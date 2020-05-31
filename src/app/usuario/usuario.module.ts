@@ -7,6 +7,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {UsuarioRountingModule} from "./usuario-rounting.module";
 import {UsuarioServiceService} from "./usuario-service.service";
 import {UsuarioRoutingComponent} from "./usuario-routing.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import {UsuarioRoutingComponent} from "./usuario-routing.component";
     CommonModule,
     ReactiveFormsModule,
     UsuarioRountingModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     RouterModule
   ],
   exports: [

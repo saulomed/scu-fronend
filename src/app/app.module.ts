@@ -7,6 +7,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {UsuarioModule} from "./usuario/usuario.module";
 import {AppRountingModule} from "./app-rounting.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import {AppRountingModule} from "./app-rounting.module";
     ReactiveFormsModule,
     HttpClientModule,
     UsuarioModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     AppRountingModule
   ],
   providers: [],
