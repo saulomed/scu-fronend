@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  // URL_API: "http://localhost:8080/v1/usuarios"
-  URL_API: "https://scu-backend.herokuapp.com/v1/usuarios"
+  URL_API: "http://localhost:8080/v1/usuarios"
 };
 
 /*
