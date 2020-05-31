@@ -1,0 +1,34 @@
+<h2>Usuários Cadastrados</h2>
+
+<!--Botão Cadastrar-->
+<div class="float-right">
+  <th class="text-center">
+    <a [routerLink]="['/usuarios/cadastrar']"
+       class="btn btn-xs btn-success ">
+           <span class="glyphicon glyphicon-plus"
+                 aria-hidden="true"></span> Cadastrar
+    </a>
+  </th>
+  <br>
+</div>
+<br>
+<div>
+<table class="table table-striped table-bordered table-hover">
+  <tbody>
+  <tr>
+    <th>Login</th>
+    <th>Nome</th>
+  </tr>
+  <tr *ngFor="let usuario of usuarios">
+    <td style="width: 150px">
+      {{usuario.login}}
+    </td>
+    <td >
+      {{usuario.nome}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<p *ngIf="usuarios.length===0">Nenhuma usuário cadastrado.</p>
+</div>

@@ -1,0 +1,36 @@
+<h2>Cadastrar usuário</h2>
+
+<div class="form-group">
+  <form [formGroup]="formularioUsuario" (ngSubmit)="onFormSubmit(formularioUsuario)">
+    <div>
+      <label for="nome">Nome</label>
+      <br>
+      <input type="text" formControlName="nome">
+    </div>
+
+    <div>
+      <label for="login">Login</label>
+      <br>
+      <input type="text" formControlName="login">
+    </div>
+
+    <div>
+      <label for="senha">Senha</label>
+      <br>
+      <input type="text" formControlName="senha">
+    </div>
+
+    <br>
+
+    <div class="btn-toolbar mb-3">
+      <div class="btn-grup mr-2">
+        <button type="button" class="btn btn-secondary" routerLink="/usuarios/listar">Cancelar</button>
+      </div>
+      <div class="btn-group mb-5">
+        <button type="button submit" [disabled]="!formularioUsuario.valid" class="btn btn-secondary" >Enviar dados</button>
+      </div>
+
+    </div>
+
+  </form>
+</div>
